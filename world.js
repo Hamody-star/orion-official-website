@@ -28,7 +28,7 @@ if(w){
   document.querySelector("#worldCtaTitle").textContent=l==="ar"?"كل عوالمك في ORION":"Your world, connected";
   document.querySelector("#worldCtaText").textContent=l==="ar"?"انتقل بين أقسام ORION واكتشف التجارب المترابطة.":"Move between ORION destinations and discover connected experiences.";
   document.querySelector(".world-meta").innerHTML=l==="ar"?"<span>هوية ORION واحدة</span><span>تجربة مترابطة</span><span>عالم ORION</span>":"<span>ONE ORION ID</span><span>CONNECTED EXPERIENCE</span><span>ORION UNIVERSE</span>";
-  const worldCta=document.querySelector(".world-cta .button");if(slug==="live"||slug==="mining"){worldCta.href="app/index.html";worldCta.innerHTML=l==="ar"?"افتح ORION Web App <span>↗</span>":"Open ORION Web App <span>↗</span>";}else{worldCta.href="universe.html";worldCta.innerHTML=l==="ar"?"استكشف كل العوالم <span>↗</span>":"Explore all worlds <span>↗</span>";}
+  document.querySelector(".world-cta .button").innerHTML=l==="ar"?"استكشف كل العوالم <span>↗</span>":"Explore all worlds <span>↗</span>";
   document.querySelector(".footer-bottom span:first-child").innerHTML="© "+document.querySelector("#year").textContent+" ORION. "+(l==="ar"?"جميع الحقوق محفوظة.":"All rights reserved.");
   document.querySelector(".footer-bottom span:last-child a").textContent=l==="ar"?"تواصل معنا":"Contact";
   document.querySelector(".back-top").textContent=l==="ar"?"كل العوالم ↑":"All worlds ↑";
