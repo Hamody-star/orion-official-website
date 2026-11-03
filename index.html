@@ -21,10 +21,13 @@ body{min-height:100svh;overflow-x:hidden}
 .landing-emblem{display:block;width:min(88vw,78svh,760px);height:min(78svh,760px);max-height:calc(100svh - 190px);object-fit:contain;margin:0;opacity:1;animation:none;filter:none}
 .landing-wordmark,.landing-sub,.landing-hook,.landing-foot{display:none}
 .landing-brand{font:800 clamp(34px,6vw,54px)/1 Manrope,sans-serif;letter-spacing:.22em;margin:0 0 2px;background:linear-gradient(110deg,#f8fbff 8%,#9ba8c7 38%,#fff4d6 58%,#b8c8ee 82%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 8px 30px rgba(120,150,255,.16)}
-.landing-tag{font:600 clamp(20px,3.5vw,29px)/1.5 Cairo,sans-serif;color:#e7eaff;margin:0}\n.landing-description{max-width:620px;margin:0 auto;color:#aeb9d4;font:400 clamp(14px,2vw,17px)/1.9 Cairo,sans-serif}
+.landing-tag{font:600 clamp(20px,3.5vw,29px)/1.5 Cairo,sans-serif;color:#e7eaff;margin:0}
+.landing-description{max-width:620px;margin:0 auto;color:#aeb9d4;font:400 clamp(14px,2vw,17px)/1.9 Cairo,sans-serif}
 .landing-sub{display:none}
-.landing-cta{display:inline-flex;min-width:0;min-height:0;align-items:center;justify-content:center;font-family:Cairo,sans-serif;font-size:17px;padding:8px 4px;color:#f4f1ff;text-decoration:none;border-bottom:1px solid rgba(178,164,255,.55);background:transparent;box-shadow:none;transition:color .2s ease,border-color .2s ease}\n.landing-cta:hover{color:#b9a8ff;border-color:#b9a8ff}
-.landing-cta span{margin-inline-start:8px}\n.landing-contact{display:inline-block;margin-top:12px;color:#aeb9d4;text-decoration:none;font:500 13px Cairo,sans-serif;border-bottom:1px solid #7185a566;padding-bottom:5px}
+.landing-cta{display:inline-flex;min-width:0;min-height:0;align-items:center;justify-content:center;font-family:Cairo,sans-serif;font-size:17px;padding:8px 4px;color:#f4f1ff;text-decoration:none;border-bottom:1px solid rgba(178,164,255,.55);background:transparent;box-shadow:none;transition:color .2s ease,border-color .2s ease}
+.landing-cta:hover{color:#b9a8ff;border-color:#b9a8ff}
+.landing-cta span{margin-inline-start:8px}
+.landing-contact{display:inline-block;margin-top:12px;color:#aeb9d4;text-decoration:none;font:500 13px Cairo,sans-serif;border-bottom:1px solid #7185a566;padding-bottom:5px}
 .en-only{display:none}
 body.english .ar-only{display:none}
 body.english .en-only{display:initial}
@@ -59,7 +62,16 @@ body.english .landing-cta.en-only{display:inline-flex}
 </section>
 </main>
 <script>
-let lang="ar";const switcher=document.querySelector(".lang-switch");
-switcher.addEventListener("click",()=>{lang=lang==="ar"?"en":"ar";document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";document.body.classList.toggle("english",lang==="en");document.body.classList.toggle("arabic",lang==="ar");switcher.textContent=lang==="ar"?"الإنجليزية":"العربية";document.querySelector(".landing-emblem").alt=lang==="ar"?"شعار ORION":"ORION emblem"});
+const switcher=document.querySelector(".lang-switch");
+let lang=localStorage.getItem("orion-language")==="en"?"en":"ar";
+function setLanguage(next){
+ lang=next;localStorage.setItem("orion-language",lang);
+ document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+ document.body.classList.toggle("english",lang==="en");document.body.classList.toggle("arabic",lang==="ar");
+ switcher.textContent=lang==="ar"?"English":"عربي";
+ switcher.setAttribute("aria-label",lang==="ar"?"التبديل إلى الإنجليزية":"Switch to Arabic");
+ const emblem=document.querySelector(".landing-emblem");if(emblem)emblem.alt=lang==="ar"?"شعار ORION":"ORION emblem";
+}
+setLanguage(lang);switcher.addEventListener("click",()=>setLanguage(lang==="ar"?"en":"ar"));
 </script>
 </body></html>
