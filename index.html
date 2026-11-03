@@ -23,7 +23,7 @@
 .landing-foot{position:absolute;bottom:25px;left:0;right:0;text-align:center;color:#65738f;font:10px Manrope,sans-serif;letter-spacing:.2em;direction:ltr;opacity:0;animation:orion-title-in 1s ease 3.15s forwards}\n@keyframes orion-emblem-in{0%{opacity:0;transform:scale(.88);filter:drop-shadow(0 0 0 rgba(70,150,255,0))}100%{opacity:1;transform:scale(1);filter:drop-shadow(0 0 32px rgba(65,153,255,.5)) drop-shadow(0 0 58px rgba(139,88,255,.25))}}\n@keyframes orion-pulse{0%,100%{filter:drop-shadow(0 0 22px rgba(65,153,255,.35)) drop-shadow(0 0 36px rgba(139,88,255,.18))}50%{filter:drop-shadow(0 0 42px rgba(65,153,255,.72)) drop-shadow(0 0 70px rgba(139,88,255,.42))}}\n@keyframes orion-title-in{from{opacity:0;transform:translateY(17px);filter:blur(5px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}\n@media(prefers-reduced-motion:reduce){.landing-emblem,.landing-wordmark,.landing-tag,.landing-sub,.landing-hook,.landing-cta,.landing-contact,.landing-foot{animation:none!important;opacity:1!important;transform:none!important;filter:none!important}}
 body.english .landing-tag{font-family:Manrope,sans-serif}body.english{font-family:"DM Sans",sans-serif}
 @media(max-width:600px){.site-header{padding:18px 20px}.landing{padding-top:95px}.landing-emblem{width:190px}.landing-wordmark{font-size:56px}.landing-foot{bottom:14px;font-size:9px}}
-.landing-share{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin:0 auto 4px}.share-link,.share-copy{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 17px;border:1px solid rgba(170,155,255,.35);border-radius:999px;background:rgba(24,25,48,.62);color:#e6e0ff;text-decoration:none;font:600 13px Cairo,sans-serif;cursor:pointer}.share-link:hover,.share-copy:hover{background:rgba(110,88,210,.22);border-color:rgba(190,176,255,.7)}.share-feedback{min-height:20px;margin:7px 0 0;color:#aeb9d2;font:12px Cairo,sans-serif}.english .share-link,.english .share-copy,.english .share-feedback{font-family:"DM Sans",sans-serif}@media(max-width:600px){.landing-share{gap:8px}.share-link,.share-copy{font-size:12px;padding:9px 13px}}\n</style>
+</style>
 </head>
 <body class="arabic">
 <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
@@ -44,12 +44,6 @@ body.english .landing-tag{font-family:Manrope,sans-serif}body.english{font-famil
   <p class="landing-hook en-only"><strong>More than an app.</strong> A connected universe bringing social experiences, entertainment, commerce and business together in one place.</p>
   <a class="button button-primary landing-cta ar-only" href="universe.html">اكتشف العالم <span>↗</span></a>
   
-  <div class="landing-share" aria-label="مشاركة موقع ORION">
-   <a class="share-link ar-only" href="https://wa.me/?text=%D8%A7%D9%83%D8%AA%D8%B4%D9%81%20%D8%B9%D8%A7%D9%84%D9%85%20ORION%20%F0%9F%8C%8C%20https%3A%2F%2Fhamody-star.github.io%2Forion-official-website%2F" target="_blank" rel="noopener">مشاركة عبر WhatsApp</a>
-   <a class="share-link en-only" href="https://wa.me/?text=Discover%20the%20ORION%20Universe%20%F0%9F%8C%8C%20https%3A%2F%2Fhamody-star.github.io%2Forion-official-website%2F" target="_blank" rel="noopener">Share on WhatsApp</a>
-   <button class="share-copy" type="button"><span class="ar-only">نسخ رابط الموقع</span><span class="en-only">Copy website link</span></button>
-  </div>
-  <p class="share-feedback" role="status" aria-live="polite"></p>
   <p class="landing-contact ar-only">للاستفسارات؟ <a href="contact.html">تواصل معنا</a></p>
   <p class="landing-contact en-only">Have a question? <a href="contact.html">Contact us</a></p>
  </div>
@@ -59,7 +53,5 @@ body.english .landing-tag{font-family:Manrope,sans-serif}body.english{font-famil
 <script>
 let lang="ar";const switcher=document.querySelector(".lang-switch");
 switcher.addEventListener("click",()=>{lang=lang==="ar"?"en":"ar";document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";document.body.classList.toggle("english",lang==="en");document.body.classList.toggle("arabic",lang==="ar");switcher.textContent=lang==="ar"?"الإنجليزية":"العربية";document.querySelector(".landing-emblem").alt=lang==="ar"?"شعار ORION":"ORION emblem"});
-const copyButton=document.querySelector(".share-copy");
-copyButton.addEventListener("click",async()=>{const feedback=document.querySelector(".share-feedback");const url="https://hamody-star.github.io/orion-official-website/";try{await navigator.clipboard.writeText(url);feedback.textContent=lang==="ar"?"تم نسخ رابط ORION":"ORION link copied";}catch(e){feedback.textContent=lang==="ar"?"انسخ الرابط من شريط العنوان":"Copy the link from the address bar";}});
 </script>
 </body></html>
