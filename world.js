@@ -23,7 +23,7 @@ if(w){
   document.querySelector("#navAbout").textContent=l==="ar"?"عن ORION":"About ORION";
   document.querySelector("#navContact").textContent=l==="ar"?"تواصل معنا":"Contact";
   document.querySelector("#footerTag").textContent=l==="ar"?"عالم رقمي مترابط":"A Connected Digital Universe";
-  switcher.textContent=l==="ar"?"English":"عربي";
+  switcher.textContent=l==="ar"?"الإنجليزية":"العربية";
  }
  render("ar");switcher.addEventListener("click",()=>render(lang==="en"?"ar":"en"));
  document.querySelector("#year").textContent=new Date().getFullYear();
