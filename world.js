@@ -3,7 +3,7 @@ const slug=document.body.dataset.world;const w=worlds[slug];
 if(w){
  let lang="ar";const root=document.documentElement;const switcher=document.querySelector(".lang-switch");
  function render(l){
-  lang=l;localStorage.setItem("orion-language",l);root.lang=l;root.dir=l==="ar"?"rtl":"ltr";document.body.classList.toggle("arabic",l==="ar");document.querySelectorAll("[data-en][data-ar]").forEach(n=>{n.textContent=n.dataset[l];});
+  lang=l;localStorage.setItem("orion-language",l);root.lang=l;root.dir=l==="ar"?"rtl":"ltr";document.body.classList.toggle("arabic",l==="ar");document.body.classList.toggle("english",l==="en");document.querySelectorAll("[data-en][data-ar]").forEach(n=>{n.textContent=n.dataset[l];});
   document.querySelector("#worldTag").textContent=l==="ar"?w.tagAr:w.tag;
   document.querySelector("#worldTitle").textContent=l==="ar"?w.ar:w.name;
   document.querySelector("#worldDesc").textContent=l==="ar"?w.descAr:w.desc;
