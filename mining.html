@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050711">
+<meta name="description" content="ORION Mining — تعرف على تجربة التعدين الرقمية داخل منظومة ORION، جلسات المشاركة، شبكة الفريق، وأرصدة ORC.">
+<title>ORION Mining — ORION</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.mining-page{padding:72px 0 110px}
+.mining-hero{position:relative;overflow:hidden;text-align:center;padding:76px 28px 82px;border:1px solid rgba(125,171,235,.22);border-radius:22px;background:radial-gradient(ellipse at 50% 0%,rgba(48,113,190,.28),transparent 58%),linear-gradient(145deg,rgba(8,17,37,.9),rgba(5,9,22,.88));}
+.mining-hero:before,.mining-hero:after{content:"";position:absolute;width:260px;height:260px;border:1px solid rgba(114,174,255,.13);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 34px rgba(79,142,220,.035),0 0 0 72px rgba(79,142,220,.025);pointer-events:none}
+.mining-hero:after{width:390px;height:390px}
+.mining-hero>*{position:relative;z-index:1}
+.mining-symbol{font-size:54px;color:#e6c78c;text-shadow:0 0 36px rgba(91,165,255,.65);margin:22px 0}
+.mining-hero h1{font:800 clamp(40px,7vw,76px)/1.12 Manrope,sans-serif;letter-spacing:.02em;margin:8px 0 18px;background:linear-gradient(100deg,#f6e8c9,#b8d7ff,#d5c2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mining-hero .lead{max-width:760px;margin:0 auto;color:#b5c5df;font-size:16px;line-height:2.1}
+.mining-pills{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:28px}
+.mining-pills span{border:1px solid rgba(151,188,238,.22);border-radius:999px;padding:9px 15px;color:#c6d8f3;font-size:11px;background:#0c1730aa}
+.mining-section{padding:76px 0 0}
+.mining-heading{text-align:center;max-width:760px;margin:0 auto 34px}
+.mining-heading .section-kicker{display:block;margin-bottom:15px}
+.mining-heading h2{font:700 clamp(27px,4vw,42px)/1.3 Manrope,sans-serif;margin:0 0 13px}
+.mining-heading p{color:#9eacc4;font-size:14px;line-height:2;margin:0}
+.mining-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.mining-card{padding:26px;border:1px solid rgba(148,178,230,.17);border-radius:14px;background:linear-gradient(145deg,rgba(15,26,49,.88),rgba(7,12,26,.88));min-height:190px}
+.mining-card .num{font:700 11px Manrope;color:#e6c78c;letter-spacing:.16em}
+.mining-card h3{font:700 18px Manrope;margin:20px 0 10px;color:#f0f4ff}
+.mining-card p{font-size:13px;line-height:1.95;color:#9eacc4;margin:0}
+.mining-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:step}
+.mining-step{position:relative;padding:24px 20px;border-top:1px solid rgba(143,185,240,.42);background:linear-gradient(180deg,rgba(19,35,64,.65),rgba(7,12,26,.25));border-radius:0 0 12px 12px}
+.mining-step b{display:block;color:#e6c78c;font:700 12px Manrope;letter-spacing:.1em;margin-bottom:17px}
+.mining-step h3{font-size:16px;margin:0 0 9px}
+.mining-step p{font-size:12px;color:#9eacc4;line-height:1.9;margin:0}
+.mining-levels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.mining-level{padding:25px 18px;text-align:center;border:1px solid rgba(148,178,230,.18);border-radius:13px;background:rgba(9,17,35,.8)}
+.mining-level strong{display:block;font:800 27px Manrope;color:#e7d2a8;margin-bottom:8px}
+.mining-level span{font-size:12px;color:#aebbd2}
+.mining-wallets{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mining-wallet{padding:30px;border:1px solid rgba(148,178,230,.18);border-radius:15px;background:linear-gradient(145deg,rgba(15,28,54,.88),rgba(7,12,26,.9))}
+.mining-wallet .symbol{font-size:25px;color:#9fcaff}
+.mining-wallet h3{font:700 19px Manrope;margin:14px 0 10px}
+.mining-wallet p{font-size:13px;line-height:2;color:#9eacc4;margin:0}
+.mining-updates{padding:34px;border:1px solid rgba(230,199,140,.25);border-radius:16px;background:radial-gradient(ellipse at 100% 0%,rgba(107,83,149,.16),transparent 55%),rgba(8,14,29,.88)}
+.mining-updates h3{font:700 23px Manrope;margin:0 0 12px}
+.mining-updates p{color:#aab8d0;font-size:14px;line-height:2;margin:0}
+.mining-note{margin-top:26px;padding:20px 22px;border-inline-start:3px solid #d8bd86;border-radius:8px;background:rgba(11,19,37,.82);color:#aebbd2;font-size:12px;line-height:2}
+.mining-note strong{color:#f1dfb9}
+.mining-cta{text-align:center;padding:58px 25px;border:1px solid rgba(148,178,230,.18);border-radius:16px;background:radial-gradient(ellipse at 50% 0%,rgba(45,96,163,.2),transparent 65%),rgba(8,14,29,.8)}
+.mining-cta h2{font:700 clamp(25px,4vw,38px)/1.35 Manrope;margin:0 0 12px}
+.mining-cta p{max-width:700px;margin:0 auto;color:#aab8d0;font-size:13px;line-height:2}
+[dir="ltr"] .mining-hero .lead,[dir="ltr"] .mining-heading p,[dir="ltr"] .mining-card p,[dir="ltr"] .mining-step p,[dir="ltr"] .mining-wallet p,[dir="ltr"] .mining-updates p,[dir="ltr"] .mining-note{font-family:"DM Sans",sans-serif}
+@media(max-width:850px){.mining-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mining-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.mining-levels{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.mining-page{padding:38px 0 70px}.mining-hero{padding:55px 18px 58px;border-radius:15px}.mining-hero h1{font-size:43px}.mining-hero .lead{font-size:14px;line-height:1.95}.mining-symbol{font-size:43px}.mining-section{padding-top:54px}.mining-grid,.mining-steps,.mining-wallets{grid-template-columns:1fr}.mining-card{min-height:0;padding:22px}.mining-step{padding:20px}.mining-levels{gap:9px}.mining-level{padding:21px 12px}.mining-updates{padding:25px 20px}.mining-cta{padding:42px 19px}}
+</style>
+</head>
+<body class="arabic">
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+<header class="site-header">
+<a class="brand" href="index.html" aria-label="ORION home"><img src="FE1CA2B2-797F-4EA6-8B1E-5C66DCC485C7.png" alt="ORION emblem"><span>ORION</span></a>
+<nav class="main-nav" aria-label="Main navigation"><a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a><a href="universe.html" data-ar="كل العوالم" data-en="All worlds">كل العوالم</a><a href="about.html" data-ar="عن ORION" data-en="About ORION">عن ORION</a><a href="contact.html" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a></nav>
+<div class="header-actions"><button class="lang-switch" type="button">English</button></div><button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false"><i></i><i></i></button>
+</header>
+<main class="section-shell mining-page">
+<section class="mining-hero">
+<div class="eyebrow"><span class="eyebrow-line"></span><span data-ar="شبكة ORION الرقمية" data-en="THE ORION DIGITAL NETWORK">شبكة ORION الرقمية</span><span class="eyebrow-line"></span></div>
+<div class="mining-symbol">⛏</div>
+<h1>ORION MINING</h1>
+<p class="lead" data-ar="اكتشف تجربة المشاركة الرقمية داخل منظومة ORION، وتعرّف على جلسات التعدين، ونظام الفريق، وأرصدة ORC ضمن بيئة واحدة مترابطة." data-en="Discover digital participation within the ORION ecosystem, including mining sessions, team structure and ORC balances in one connected environment.">اكتشف تجربة المشاركة الرقمية داخل منظومة ORION، وتعرّف على جلسات التعدين، ونظام الفريق، وأرصدة ORC ضمن بيئة واحدة مترابطة.</p>
+<div class="mining-pills"><span data-ar="جلسات مشاركة" data-en="Mining sessions">جلسات مشاركة</span><span data-ar="شبكة فريق" data-en="Team network">شبكة فريق</span><span data-ar="ORC" data-en="ORC">ORC</span><span data-ar="هوية ORION واحدة" data-en="One ORION ID">هوية ORION واحدة</span></div>
+</section>
+<section class="mining-section">
+<div class="mining-heading"><span class="section-kicker" data-ar="01 / نظرة عامة" data-en="01 / OVERVIEW">01 / نظرة عامة</span><h2 data-ar="ما هو ORION Mining؟" data-en="What is ORION Mining?">ما هو ORION Mining؟</h2><p data-ar="ORION Mining هو برنامج مشاركة ومكافآت رقمي ضمن منظومة ORION. يتيح للمستخدم المؤهل تفعيل جلسات مشاركة من داخل التطبيق، ومتابعة نشاطه وأرصدة ORC وفق القواعد التي تعلنها ORION رسميًا. تفاصيل التقنية ومعدل الاحتساب وإصدار العملة وآلية التوزيع تُنشر بوضوح قبل تفعيل البرنامج." data-en="ORION Mining is a digital participation and rewards program within ORION. Eligible users can activate participation sessions in the app and track activity and ORC balances under ORION's published rules. Technical architecture, accrual rates, token issuance and distribution mechanics will be disclosed before the program is activated.">ORION Mining هو برنامج مشاركة ومكافآت رقمي ضمن منظومة ORION. يتيح للمستخدم المؤهل تفعيل جلسات مشاركة من داخل التطبيق، ومتابعة نشاطه وأرصدة ORC وفق القواعد التي تعلنها ORION رسميًا. تفاصيل التقنية ومعدل الاحتساب وإصدار العملة وآلية التوزيع تُنشر بوضوح قبل تفعيل البرنامج.</p></div>
+<div class="mining-grid">
+<article class="mining-card"><span class="num">01</span><h3 data-ar="مشاركة من التطبيق" data-en="In-app participation">مشاركة من التطبيق</h3><p data-ar="تتم تجربة التعدين من خلال قسم مخصص داخل ORION، دون مطالبة المستخدم بتشغيل أجهزة تعدين متخصصة. ولا يعني ذلك إثبات عمل على شبكة بلوك تشين ما لم تعلن ORION عن البنية التقنية المعتمدة." data-en="The mining experience is accessed through a dedicated ORION app section without requiring users to operate specialized mining hardware. This does not imply blockchain proof-of-work unless ORION publishes that technical architecture.">تتم تجربة التعدين من خلال قسم مخصص داخل ORION، دون مطالبة المستخدم بتشغيل أجهزة تعدين متخصصة. ولا يعني ذلك إثبات عمل على شبكة بلوك تشين ما لم تعلن ORION عن البنية التقنية المعتمدة.</p></article>
+<article class="mining-card"><span class="num">02</span><h3 data-ar="جلسات لمدة 24 ساعة" data-en="24-hour sessions">جلسات لمدة 24 ساعة</h3><p data-ar="تستمر جلسة المشاركة لمدة 24 ساعة من وقت تفعيلها. ويمكن للمستخدم العودة إلى التطبيق لمتابعة الجلسة وبدء جلسة جديدة وفق قواعد البرنامج." data-en="Each participation session lasts 24 hours from activation. Users can return to the app to review the session and start another one under the program rules.">تستمر جلسة المشاركة لمدة 24 ساعة من وقت تفعيلها. ويمكن للمستخدم العودة إلى التطبيق لمتابعة الجلسة وبدء جلسة جديدة وفق قواعد البرنامج.</p></article>
+<article class="mining-card"><span class="num">03</span><h3 data-ar="تفعيل الجلسة" data-en="Session activation">تفعيل الجلسة</h3><p data-ar="يتضمن التصور المعتمد خطوة مشاهدة إعلان واحد عند بدء الجلسة، إذا كان ذلك متاحًا في بلد المستخدم ووفق سياسات مزود الإعلانات. ولا توجد مطالبة بمشاهدة إعلانات متواصلة طوال الجلسة." data-en="The approved concept includes one ad view when starting a session, where available in the user's country and subject to the advertising provider's policies. Continuous ad viewing throughout the session is not required.">يتضمن التصور المعتمد خطوة مشاهدة إعلان واحد عند بدء الجلسة، إذا كان ذلك متاحًا في بلد المستخدم ووفق سياسات مزود الإعلانات. ولا توجد مطالبة بمشاهدة إعلانات متواصلة طوال الجلسة.</p></article>
+</div>
+</section>
+<section class="mining-section">
+<div class="mining-heading"><span class="section-kicker" data-ar="02 / طريقة المشاركة" data-en="02 / HOW IT WORKS">02 / طريقة المشاركة</span><h2 data-ar="رحلة المستخدم داخل التعدين" data-en="The mining participation journey">رحلة المستخدم داخل التعدين</h2><p data-ar="واجهة التطبيق ستعرض حالة الجلسة والأهلية وسجل النشاط بصورة واضحة، حتى يعرف المستخدم ما الذي تم وما الذي ينتظره." data-en="The app will clearly show session status, eligibility and activity history, so users can understand completed and pending steps.">واجهة التطبيق ستعرض حالة الجلسة والأهلية وسجل النشاط بصورة واضحة، حتى يعرف المستخدم ما الذي تم وما الذي ينتظره.</p></div>
+<div class="mining-steps">
+<article class="mining-step"><b>STEP 01</b><h3 data-ar="تسجيل الدخول" data-en="Sign in">تسجيل الدخول</h3><p data-ar="استخدم حساب ORION الموحد للوصول إلى قسم Mining." data-en="Use your unified ORION account to access Mining.">استخدم حساب ORION الموحد للوصول إلى قسم Mining.</p></article>
+<article class="mining-step"><b>STEP 02</b><h3 data-ar="مراجعة الأهلية" data-en="Check eligibility">مراجعة الأهلية</h3><p data-ar="راجع حالة الحساب وأي متطلبات لازمة قبل تفعيل الجلسة." data-en="Review account status and any requirements before activating a session.">راجع حالة الحساب وأي متطلبات لازمة قبل تفعيل الجلسة.</p></article>
+<article class="mining-step"><b>STEP 03</b><h3 data-ar="تفعيل الجلسة" data-en="Activate a session">تفعيل الجلسة</h3><p data-ar="أكمل خطوة التفعيل المعروضة، ثم تابع مدة الجلسة من لوحة التعدين." data-en="Complete the displayed activation step, then track the session in the mining dashboard.">أكمل خطوة التفعيل المعروضة، ثم تابع مدة الجلسة من لوحة التعدين.</p></article>
+<article class="mining-step"><b>STEP 04</b><h3 data-ar="متابعة الرصيد" data-en="Track your balance">متابعة الرصيد</h3><p data-ar="راجع سجل النشاط وأرصدة ORC وحالة أي عملية معلقة من داخل الحساب." data-en="Review activity history, ORC balances and the status of any pending operation in your account.">راجع سجل النشاط وأرصدة ORC وحالة أي عملية معلقة من داخل الحساب.</p></article>
+</div>
+</section>
+<section class="mining-section">
+<div class="mining-heading"><span class="section-kicker" data-ar="03 / شبكة الفريق" data-en="03 / TEAM NETWORK">03 / شبكة الفريق</span><h2 data-ar="انضم إلى شبكة ORION" data-en="Grow your ORION network">انضم إلى شبكة ORION</h2><p data-ar="يستطيع المستخدم دعوة أشخاص جدد إلى ORION، وتُحتسب العضوية المؤهلة عبر الشبكة التابعة وفق قواعد البرنامج. لا يكفي التسجيل وحده لاحتساب العضو؛ يجب استيفاء شروط التوثيق والنشاط." data-en="Users can invite others to ORION. Qualified membership across the connected network is counted under program rules. Registration alone does not qualify a member; verification and activity requirements must be met.">يستطيع المستخدم دعوة أشخاص جدد إلى ORION، وتُحتسب العضوية المؤهلة عبر الشبكة التابعة وفق قواعد البرنامج. لا يكفي التسجيل وحده لاحتساب العضو؛ يجب استيفاء شروط التوثيق والنشاط.</p></div>
+<div class="mining-levels">
+<div class="mining-level"><strong>Starter</strong><span data-ar="مرحلة البداية" data-en="Starting stage">مرحلة البداية</span></div>
+<div class="mining-level"><strong>30</strong><span data-ar="عضو مؤهل" data-en="Qualified members">عضو مؤهل</span></div>
+<div class="mining-level"><strong>75</strong><span data-ar="عضو مؤهل" data-en="Qualified members">عضو مؤهل</span></div>
+<div class="mining-level"><strong>500</strong><span data-ar="عضو مؤهل" data-en="Qualified members">عضو مؤهل</span></div>
+</div>
+<div class="mining-note"><strong data-ar="شروط احتساب الفريق:" data-en="Team qualification:">شروط احتساب الفريق:</strong> <span data-ar="يجب أن يكون العضو موثق الهوية ونشطًا في التعدين وفق تعريف النشاط وفترة القياس المعلنة. لا تُعد المستويات وحدها وعدًا بمكافأة أو دخل." data-en="A member must be identity-verified and active in mining under the published activity definition and measurement period. Team levels alone do not promise a reward or income.">يجب أن يكون العضو موثق الهوية ونشطًا في التعدين وفق تعريف النشاط وفترة القياس المعلنة. لا تُعد المستويات وحدها وعدًا بمكافأة أو دخل.</span></div>
+</section>
+<section class="mining-section">
+<div class="mining-heading"><span class="section-kicker" data-ar="04 / إدارة الأرصدة" data-en="04 / BALANCE MANAGEMENT">04 / إدارة الأرصدة</span><h2 data-ar="محفظتان بوظيفتين واضحتين" data-en="Two wallets, clearly defined">محفظتان بوظيفتين واضحتين</h2><p data-ar="يفصل التصميم بين رصيد التعدين قيد المراجعة أو التجميع وبين رصيد ORION الأساسي، مع إظهار حالة كل رصيد وسجل انتقاله." data-en="The design separates mining balances that are pending or accumulating from the main ORION balance, while showing each balance's status and transfer history.">يفصل التصميم بين رصيد التعدين قيد المراجعة أو التجميع وبين رصيد ORION الأساسي، مع إظهار حالة كل رصيد وسجل انتقاله.</p></div>
+<div class="mining-wallets">
+<article class="mining-wallet"><div class="symbol">◈</div><h3>ORION Mining Wallet</h3><p data-ar="مساحة مخصصة لتسجيل أرصدة ORC الناتجة عن نشاط التعدين، وعرض الأرصدة المعلقة وحالة التحقق وسجل التجميع." data-en="A dedicated space for recording ORC balances attributed to mining activity, showing pending balances, verification status and accrual history.">مساحة مخصصة لتسجيل أرصدة ORC الناتجة عن نشاط التعدين، وعرض الأرصدة المعلقة وحالة التحقق وسجل التجميع.</p></article>
+<article class="mining-wallet"><div class="symbol">◫</div><h3>ORION Main Wallet</h3><p data-ar="المحفظة الأساسية في منظومة ORION. تستقبل الأرصدة التي أصبحت مؤهلة للنقل بعد استيفاء التحقق وشروط الإتاحة والتوزيع المعلنة." data-en="The primary wallet in ORION. It receives balances that become eligible for transfer after verification and the published availability and distribution conditions are met.">المحفظة الأساسية في منظومة ORION. تستقبل الأرصدة التي أصبحت مؤهلة للنقل بعد استيفاء التحقق وشروط الإتاحة والتوزيع المعلنة.</p></article>
+</div>
+</section>
+<section class="mining-section">
+<div class="mining-updates">
+<span class="section-kicker" data-ar="05 / أخبار وتحديثات ORION" data-en="05 / ORION NEWS & UPDATES">05 / أخبار وتحديثات ORION</span>
+<h3 data-ar="كل شهر، خطوة جديدة في الرحلة" data-en="A new step in the journey, every month">كل شهر، خطوة جديدة في الرحلة</h3>
+<p data-ar="ستُنشر عبر هذه المساحة التحديثات الرسمية الدورية حول تطور ORION Mining، مثل تقدم بناء الشبكة، وتجربة المستخدم، وتحديثات التطبيق، ومراحل الاختبار، والإعلانات التقنية. كل تحديث سيحمل تاريخ نشره وحالته، مع التمييز بين ما اكتمل وما لا يزال قيد التطوير." data-en="This space will carry periodic official updates on ORION Mining: network development, user experience, app updates, testing milestones and technical announcements. Each update will show its publication date and status, distinguishing completed work from items still in development.">ستُنشر عبر هذه المساحة التحديثات الرسمية الدورية حول تطور ORION Mining، مثل تقدم بناء الشبكة، وتجربة المستخدم، وتحديثات التطبيق، ومراحل الاختبار، والإعلانات التقنية. كل تحديث سيحمل تاريخ نشره وحالته، مع التمييز بين ما اكتمل وما لا يزال قيد التطوير.</p>
+</div>
+</section>
+<section class="mining-section">
+<div class="mining-heading"><span class="section-kicker" data-ar="06 / الوضوح والثقة" data-en="06 / CLARITY & TRUST">06 / الوضوح والثقة</span><h2 data-ar="معلومات واضحة قبل المشاركة" data-en="Clear information before participation">معلومات واضحة قبل المشاركة</h2><p data-ar="لا تُعد أرصدة التعدين عائدًا نقديًا مضمونًا، ولا يعني ظهور ORC داخل الحساب وجود سعر سوق أو إمكانية بيع أو تداول. ستعلن ORION قبل تفعيل البرنامج عن معدل الاحتساب، وإجمالي الإصدار، والبنية التقنية، وآلية التوزيع، وشروط الأهلية والرسوم وأي قيود على الاحتفاظ أو السحب أو التحويل." data-en="Mining balances are not guaranteed cash returns. Displaying ORC in an account does not establish a market price or the ability to sell or trade it. Before activation, ORION will disclose accrual rates, total issuance, technical architecture, distribution mechanics, eligibility, fees and any holding, withdrawal or transfer restrictions.">لا تُعد أرصدة التعدين عائدًا نقديًا مضمونًا، ولا يعني ظهور ORC داخل الحساب وجود سعر سوق أو إمكانية بيع أو تداول. ستعلن ORION قبل تفعيل البرنامج عن معدل الاحتساب، وإجمالي الإصدار، والبنية التقنية، وآلية التوزيع، وشروط الأهلية والرسوم وأي قيود على الاحتفاظ أو السحب أو التحويل.</p></div>
+<div class="mining-note"><strong data-ar="حالة الخدمة:" data-en="Service status:">حالة الخدمة:</strong> <span data-ar="هذه الصفحة تعريفية. لا تعني أن التعدين أو إصدار ORC أو التحويل إلى المحفظة أو التداول أصبح متاحًا الآن. سيتم الإعلان عن الإطلاق والوظائف المتاحة فقط بعد اكتمال الاختبارات والمراجعات اللازمة." data-en="This is an informational page. It does not mean mining, ORC issuance, wallet transfers or trading are currently available. Launch and available functions will be announced only after required testing and reviews are complete.">هذه الصفحة تعريفية. لا تعني أن التعدين أو إصدار ORC أو التحويل إلى المحفظة أو التداول أصبح متاحًا الآن. سيتم الإعلان عن الإطلاق والوظائف المتاحة فقط بعد اكتمال الاختبارات والمراجعات اللازمة.</span></div>
+</section>
+<section class="mining-section">
+<div class="mining-cta"><h2 data-ar="ORION Mining — جزء من عالم واحد" data-en="ORION Mining — part of one connected universe">ORION Mining — جزء من عالم واحد</h2><p data-ar="تابع الإعلانات الرسمية والتحديثات الشهرية من ORION، واستكشف بقية عوالم المنظومة من مكان واحد." data-en="Follow official announcements and monthly updates from ORION, and explore the rest of the ecosystem from one place.">تابع الإعلانات الرسمية والتحديثات الشهرية من ORION، واستكشف بقية عوالم المنظومة من مكان واحد.</p><div style="margin-top:25px"><a class="button button-primary" href="universe.html" data-ar="استكشف كل العوالم ↗" data-en="Explore all worlds ↗">استكشف كل العوالم ↗</a></div></div>
+</section>
+</main>
+<footer class="site-footer"><div class="footer-top"><a class="brand footer-brand" href="index.html"><img src="FE1CA2B2-797F-4EA6-8B1E-5C66DCC485C7.png" alt=""><span>ORION</span></a><p data-ar="عالم رقمي مترابط" data-en="A Connected Digital Universe">عالم رقمي مترابط</p><a href="universe.html" class="back-top" data-ar="كل العوالم ↑" data-en="All worlds ↑">كل العوالم ↑</a></div><div class="footer-bottom"><span>© <span id="year"></span> ORION. <span data-ar="جميع الحقوق محفوظة." data-en="All rights reserved.">جميع الحقوق محفوظة.</span></span><span>ONE IDENTITY. ONE UNIVERSE. ENDLESS POSSIBILITIES. <a href="policies.html">السياسات / Policies</a></span></div></footer>
+<script>
+const switcher=document.querySelector(".lang-switch"),menu=document.querySelector(".menu-toggle"),nav=document.querySelector(".main-nav");
+let lang=localStorage.getItem("orion-language")==="en"?"en":"ar";
+function setLanguage(next){lang=next;localStorage.setItem("orion-language",lang);document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";document.body.classList.toggle("english",lang==="en");document.body.classList.toggle("arabic",lang==="ar");document.querySelectorAll("[data-ar][data-en]").forEach(el=>{el.textContent=el.dataset[lang]});switcher.textContent=lang==="ar"?"English":"عربي";switcher.setAttribute("aria-label",lang==="ar"?"Switch to English":"التبديل إلى العربية");}
+setLanguage(lang);switcher.addEventListener("click",()=>setLanguage(lang==="ar"?"en":"ar"));
+document.querySelector("#year").textContent=new Date().getFullYear();
+if(menu&&nav){menu.addEventListener("click",()=>{const opened=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(opened))});nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false")}));}
+</script>
+</body></html>
