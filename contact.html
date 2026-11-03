@@ -51,9 +51,10 @@ body.english .contact-layout{direction:ltr}body.english .field select,body.engli
 <div class="contact-point"><span class="point-mark">03</span><div><b class="ar-only">اكتب رسالتك</b><b class="en-only">Your message</b><span class="ar-only">اشرح المشكلة أو الاستفسار باختصار.</span><span class="en-only">Briefly describe your question or issue.</span></div></div>
 </div>
 </aside>
-<form class="contact-form" id="contactForm">
+<form class="contact-form" id="contactForm" action="https://formspree.io/f/xjyyjbdl" method="POST">
 <div class="form-heading"><h2 class="ar-only">نموذج التواصل</h2><h2 class="en-only">Contact form</h2><p class="ar-only">الحقول المعلّمة بنجمة مطلوبة.</p><p class="en-only">Fields marked with an asterisk are required.</p></div>
 <div class="form-row">
+<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-5000px" />
 <div class="field"><label for="fullName"><span class="ar-only">الاسم بالكامل</span><span class="en-only">Full name</span> <span class="required">*</span></label><input id="fullName" name="name" autocomplete="name" required maxlength="100" placeholder="الاسم اللي نقدر نناديك بيه"></div>
 <div class="field"><label for="email"><span class="ar-only">البريد الإلكتروني</span><span class="en-only">Email address</span> <span class="optional ar-only">(اختياري)</span><span class="optional en-only">(optional)</span></label><input id="email" name="email" type="email" autocomplete="email" maxlength="150" placeholder="name@example.com"></div>
 </div>
@@ -83,7 +84,7 @@ function setLanguage(next){lang=next;document.documentElement.lang=lang;document
 b.addEventListener("click",()=>setLanguage(lang==="ar"?"en":"ar"));
 document.getElementById("year").textContent=new Date().getFullYear();
 const menu=document.querySelector(".menu-toggle"),nav=document.querySelector(".main-nav");menu.addEventListener("click",()=>{const opened=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(opened));});
-document.getElementById("contactForm").addEventListener("submit",event=>{event.preventDefault();const status=document.getElementById("formStatus");status.textContent=lang==="ar"?"تم التحقق من البيانات. نموذج التواصل جاهز، لكن استقبال الرسائل لم يُفعّل بعد لأنه يحتاج ربطًا بخدمة إرسال آمنة. لم يتم إرسال بياناتك.":"Your details are valid. The form is ready, but message delivery has not been enabled yet because it needs a secure submission service. Your information has not been sent.";status.classList.add("visible");});
+document.getElementById("contactForm").addEventListener("submit",async event=>{event.preventDefault();const form=event.currentTarget;const status=document.getElementById("formStatus");const submit=form.querySelector('button[type="submit"]');const originalLabel=submit.innerHTML;status.classList.add("visible");status.textContent=lang==="ar"?"جارٍ إرسال رسالتك...":"Sending your message...";submit.disabled=true;try{const response=await fetch(form.action,{method:"POST",body:new FormData(form),headers:{"Accept":"application/json"}});if(response.ok){status.textContent=lang==="ar"?"وصلت رسالتك بنجاح. شكرًا لتواصلك مع ORION.":"Your message was sent successfully. Thank you for contacting ORION.";form.reset();}else{let data={};try{data=await response.json();}catch(_){}status.textContent=(lang==="ar"?"لم نتمكن من إرسال الرسالة. ":"We couldn't send your message. ")+(data.errors?.map(error=>error.message).join(" ")|| (lang==="ar"?"راجع البيانات وحاول مرة أخرى.":"Please check the details and try again."));}}catch(error){status.textContent=lang==="ar"?"حدث خطأ في الاتصال. تحقق من الإنترنت وحاول مرة أخرى.":"A network error occurred. Check your connection and try again.";}finally{submit.disabled=false;submit.innerHTML=originalLabel;}});
 </script>
 </body>
 </html>
