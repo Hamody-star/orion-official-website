@@ -22,7 +22,7 @@ if(w){
   document.querySelector("#navUniverse").textContent=l==="ar"?"كل العوالم":"All worlds";
   document.querySelector("#navAbout").textContent=l==="ar"?"عن ORION":"About ORION";
   document.querySelector("#navContact").textContent=l==="ar"?"تواصل معنا":"Contact";
-  document.querySelector("#footerTag").textContent=l==="ar"?"عالم رقمي مترابط":"A Connected Digital Universe";
+  document.querySelector("#footerTag").textContent=l==="ar"?"عالم رقمي مترابط":"A Connected Digital Universe";\n  document.querySelectorAll(".main-nav a").forEach((a)=>{a.setAttribute("lang",l)});\n  document.querySelector(".menu-toggle")?.setAttribute("aria-label",l==="ar"?"فتح القائمة":"Open navigation");\n  switcher.setAttribute("aria-label",l==="ar"?"التبديل إلى الإنجليزية":"Switch to Arabic");
   switcher.textContent=l==="ar"?"الإنجليزية":"العربية";
  }
  render("ar");switcher.addEventListener("click",()=>render(lang==="en"?"ar":"en"));
