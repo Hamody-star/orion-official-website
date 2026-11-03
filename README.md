@@ -1,17 +1,25 @@
 # ORION Official Website
 
-Cinematic bilingual (English / Arabic) responsive website for the ORION digital universe.
+الموقع التعريفي الرسمي لمنظومة ORION، بتصميم متجاوب يدعم العربية والإنجليزية واتجاهي RTL وLTR.
 
-## Preview locally
-Open `index.html` in a modern browser. Google Fonts are loaded online; the page itself is static HTML, CSS and JavaScript.
+## التشغيل والمعاينة
+افتح `index.html` في متصفح حديث. يعتمد الموقع على HTML وCSS وJavaScript، مع تحميل خطوط الويب عند توفر الاتصال بالإنترنت.
 
-## Structure
-- `index.html` — homepage and primary sections
-- `styles.css` — responsive visual system
-- `script.js` — Arabic/English switching and mobile navigation
-- `assets/orion-logo.jpeg` — intended location for the supplied ORION emblem
+## صفحات الموقع
+- `index.html` — الصفحة الرئيسية وعرض عوالم ORION الاثني عشر.
+- `universe.html` — استعراض المنظومة.
+- `about.html` — نبذة عن ORION.
+- `identity.html` — هوية ORION ID.
+- `contact.html` — التواصل.
+- `live.html` — ORION Live، مستويات Live VIP ونظام Noble المستقل.
+- `vip.html` — عضوية ORION العامة.
+- صفحات مستقلة لبقية عوالم ORION: Betting وMarketplace وAuctions وBusiness وWallet وReferral وGifts وCreator Studio وRewards وInvest.
 
-## Current scope
-The homepage presents all twelve ORION destinations, ORION ID, the brand vision and contact information.
+## ملفات التصميم
+- `styles.css` — نظام التصميم العام والاستجابة للشاشات.
+- `world.css` — تنسيق صفحات العوالم.
+- `script.js` — الترجمة والتنقل في الصفحة الرئيسية.
+- `world.js` — محتوى صفحات العوالم والتبديل بين العربية والإنجليزية.
 
-Sign-in and account creation are presentation links only until ORION's authentication service is connected. This repository does not implement account creation, payments, betting, wallet or investment transactions.
+## ملاحظات النطاق
+الموقع واجهة تعريفية ثابتة. تسجيل الدخول وإنشاء الحساب وروابط الخدمات لا تمثل تكاملًا خلفيًا مكتملًا حتى ربط خدمات ORION الفعلية. لا ينفذ هذا المستودع معاملات الدفع أو المحفظة أو المراهنات أو الاستثمار.
