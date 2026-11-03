@@ -50,3 +50,91 @@ body.arabic .world-card h3,body.arabic .world-detail h2{font-family:"Cairo",sans
     scroll-behavior: auto !important;
   }
 }
+
+
+/* ORION responsive layout pass — phones and small tablets */
+html { -webkit-text-size-adjust: 100%; }
+body { min-width: 320px; }
+img, video, iframe { max-width: 100%; }
+.section-shell { width: min(var(--max), calc(100% - 64px)); }
+button, a { touch-action: manipulation; }
+
+@media (max-width: 700px) {
+  html { scroll-padding-top: 76px; }
+  .section-shell { width: calc(100% - 36px); }
+  .site-header { min-height: 66px; height: 66px; padding-inline: 18px; gap: 10px; }
+  .brand { min-width: 0; gap: 8px; font-size: 15px; letter-spacing: .12em; }
+  .brand img { width: 30px; height: 30px; flex: 0 0 auto; }
+  .header-actions { margin-inline-start: auto; margin-inline-end: 0; gap: 4px; }
+  .lang-switch { min-height: 42px; padding: 9px 8px; font-size: 12px; white-space: nowrap; }
+  .menu-toggle { width: 42px; height: 42px; padding: 7px; display: grid; place-content: center; flex: 0 0 auto; }
+  .main-nav { top: 66px; left: 0; right: 0; padding: 16px 20px 20px; gap: 0; max-height: calc(100svh - 66px); overflow-y: auto; }
+  .main-nav a { display: block; padding: 13px 4px; font-size: 14px; line-height: 1.5; border-bottom: 1px solid var(--line); }
+  .button { min-height: 44px; justify-content: center; padding: 12px 16px; font-size: 13px; }
+  .hero { min-height: min(760px, calc(100svh - 66px)); min-height: max(620px, calc(100svh - 66px)); }
+  .hero-copy { width: 100%; padding: 38px 0 76px; }
+  .hero-emblem { width: min(62vw, 230px); height: min(62vw, 230px); margin-top: 8px; }
+  .wordmark { font-size: clamp(42px, 13vw, 62px); letter-spacing: .15em; padding-inline-start: .15em; }
+  .hero h1 { font-size: clamp(26px, 7.5vw, 36px); line-height: 1.35; padding-inline: 8px; }
+  .hero-description { max-width: 100%; padding-inline: 8px; font-size: 14px; line-height: 1.85; }
+  .hero-actions { flex-wrap: wrap; gap: 14px; margin-top: 24px; }
+  .hero-bottom { bottom: 14px; padding-inline: 6px; font-size: 8px; }
+  .intro, .principles { padding-block: 68px; }
+  .intro h2, .section-heading h2, .identity-content h2, .access-panel h2, .contact h2 { font-size: clamp(29px, 8vw, 39px); line-height: 1.3; }
+  .intro-grid { gap: 16px; margin-top: 24px; }
+  .intro-grid p, .section-heading > p, .identity-content p, .access-panel > p { font-size: 14px; line-height: 1.9; }
+  .universe { padding: 30px 0 72px; }
+  .section-heading { margin: 22px 0 28px; }
+  .section-heading > p { margin-top: 14px; }
+  .universe-grid { grid-template-columns: minmax(0, 1fr); gap: 11px; }
+  .world-card { min-height: 154px; padding: 20px; }
+  .world-card h3 { max-width: calc(100% - 28px); overflow-wrap: anywhere; font-size: 17px; line-height: 1.4; }
+  .world-card p { max-width: calc(100% - 18px); font-size: 12px; line-height: 1.7; }
+  .world-icon { right: 18px; top: 18px; font-size: 22px; }
+  .card-arrow { right: 18px; bottom: 17px; }
+  .identity-section { min-height: 420px; border-radius: 12px; padding-inline: 18px; }
+  .identity-orbit { width: min(110vw, 430px); height: min(110vw, 430px); }
+  .identity-content { width: 100%; padding: 58px 0; }
+  .principle-grid { grid-template-columns: minmax(0, 1fr); gap: 22px; margin-top: 30px; }
+  .principle-grid h3 { margin: 16px 0 8px; }
+  .access-section { padding: 8px 0 66px; }
+  .access-panel { padding: 42px 22px; border-radius: 13px; }
+  .contact { display: block; padding: 18px 0 66px; }
+  .contact-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 18px; }
+  .site-footer { padding: 26px 18px 18px; }
+  .footer-top, .footer-bottom { align-items: flex-start; gap: 14px; flex-wrap: wrap; }
+  .footer-top { padding-bottom: 22px; }
+  .footer-top p { width: 100%; order: 3; line-height: 1.7; }
+  .footer-bottom { line-height: 1.8; font-size: 10px; }
+  .footer-bottom span { max-width: 100%; overflow-wrap: anywhere; }
+  .footer-bottom span:nth-child(2) { width: 100%; order: 3; letter-spacing: .06em; }
+  .world-page { padding: 42px 0 66px; }
+  .world-hero { padding: 24px 0 34px; }
+  .world-hero h1 { font-size: clamp(31px, 9vw, 46px); line-height: 1.25; overflow-wrap: anywhere; }
+  .world-hero p { padding-inline: 4px; font-size: 14px; line-height: 1.9; }
+  .world-meta { gap: 8px; margin: 20px 0; }
+  .world-meta span { padding: 8px 11px; font-size: 10px; }
+  .world-detail-grid { grid-template-columns: minmax(0, 1fr); gap: 11px; }
+  .world-detail { padding: 21px; }
+  .world-detail h2 { margin: 15px 0 8px; font-size: 17px; line-height: 1.45; }
+  .world-detail p { font-size: 13px; line-height: 1.85; }
+  .world-cta { margin-top: 38px; padding: 38px 20px; }
+  .world-cta h2 { font-size: clamp(25px, 7vw, 34px); line-height: 1.3; }
+}
+
+@media (max-width: 380px) {
+  .section-shell { width: calc(100% - 28px); }
+  .site-header { padding-inline: 13px; }
+  .brand { font-size: 13px; }
+  .brand img { width: 27px; height: 27px; }
+  .lang-switch { padding-inline: 5px; font-size: 11px; }
+  .landing { padding-inline: 16px; }
+  .landing-emblem { width: 160px; }
+  .landing-wordmark { font-size: 47px; }
+  .landing-hook { font-size: 13px; line-height: 1.8; }
+}
+
+/* Wide tables stay readable on narrow screens without breaking the page */
+.program-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.program-table-wrap table { min-width: 620px; }
+table { max-width: 100%; }
