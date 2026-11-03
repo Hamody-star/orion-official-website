@@ -1,1 +1,0 @@
-ORION GitHub connection check. This file confirms repository write access.
