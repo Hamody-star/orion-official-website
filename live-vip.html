@@ -35,7 +35,54 @@ function showProgram(which){vipSubnav.hidden=true;vipDetails.hidden=which!=='vip
 document.getElementById('openVip').addEventListener('click',()=>showProgram('vip'));document.getElementById('openNoble').addEventListener('click',()=>showProgram('noble'));
 document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>{vipDetails.hidden=true;nobleDetails.hidden=true;vipSubnav.hidden=false;vipSubnav.scrollIntoView({behavior:'smooth',block:'center'})}));
 const languageButton=document.querySelector('.lang-switch');
-function setLanguage(next){localStorage.setItem('orion-language',next);document.documentElement.lang=next;document.documentElement.dir=next==='ar'?'rtl':'ltr';document.body.classList.toggle('arabic',next==='ar');document.body.classList.toggle('english',next==='en');document.querySelectorAll('[data-en][data-ar]').forEach(node=>{node.textContent=node.dataset[next]});languageButton.textContent=next==='ar'?'English':'عربي';languageButton.setAttribute('aria-label',next==='ar'?'التبديل إلى الإنجليزية':'Switch to Arabic');}
+const liveVipTranslations={
+'الرئيسية':'Home','تواصل معنا':'Contact','مركز مستقل لمستويات VIP ورتب Noble. اختار النظام اللي عايز تستكشفه.':'A dedicated hub for VIP levels and Noble ranks. Choose the program you want to explore.',
+'مستويات العضوية ومميزات كل مستوى':'Membership levels and benefits','الرتب الخمس والكائنات الأسطورية':'The five Noble ranks and their mythical guardians.',
+'كل مستوى له شاراته ومؤثراته ومجموعة امتيازاته المقترحة.':'Each level has its own badges, effects and proposed privileges.',
+'→ الرجوع لاختيار VIP / Noble':'→ Back to VIP / Noble selection','الشحن':'Top-up','المحافظة على المستوى':'Maintain level',
+'تميّزك يظهر في كل حضور':'Make your presence stand out.','بداية هويتك المميزة في ORION Live':'The beginning of your ORION Live identity.',
+'إطار رأس مميز':'Distinctive profile frame','شارة VIP بجانب الاسم':'VIP badge beside your name','لون اسم مميز':'Distinctive name color',
+'إطار صورة شخصي مطوّر':'Enhanced profile picture frame','دخول غرفة بتأثير خفيف':'Subtle room-entry effect','فقاعة دردشة خاصة':'Exclusive chat bubble',
+'إطار رأس متحرك':'Animated profile frame','شارة دخول متحركة':'Animated entrance badge','خلفية ملف شخصي':'Profile background',
+'تأثير دخول سينمائي':'Cinematic entrance effect','بطاقة تعريف VIP':'VIP identity card','لون اسم متدرج':'Gradient name color',
+'إطار رأس فاخر':'Premium profile frame','مؤثر تفاعل خاص':'Exclusive interaction effect','زخرفة اسم مميزة':'Distinctive name styling',
+'مستوى متقدم من الحضور والهوية البصرية':'An advanced level of presence and visual identity.',
+'إطار متحرك مطوّر':'Enhanced animated frame','دخول غرفة بتأثير ضوئي':'Light-effect room entrance','بطاقة ملف موسعة':'Expanded profile card',
+'شارة VIP متوهجة':'Glowing VIP badge','مؤثر ظهور الاسم':'Name reveal effect','خلفية ملف متحركة':'Animated profile background',
+'إطار بتصميم حصري':'Exclusive frame design','تأثير دخول مزدوج':'Double entrance effect','فقاعة دردشة متحركة':'Animated chat bubble',
+'شارة رتبة متقدمة':'Advanced rank badge','مؤثر حضور خاص':'Exclusive presence effect','ثيم ملف شخصي حصري':'Exclusive profile theme',
+'إطار ملكي متحرك':'Animated royal frame','دخول غرفة بتأثير ملكي':'Royal room-entry effect','بطاقة هوية رقمية':'Digital identity card',
+'إطار نخبوي':'Elite frame','تأثير اسم ثلاثي الأبعاد':'3D name effect','مؤثر تفاعل حصري':'Exclusive interaction effect',
+'شارة VIP لامعة':'Shimmering VIP badge','دخول غرفة بهالة ضوئية':'Room entrance with a light aura','ثيم ملف فاخر':'Luxury profile theme',
+'إطار أسطوري':'Mythic frame','مؤثر ظهور سينمائي':'Cinematic reveal effect','بطاقة هوية متحركة':'Animated identity card',
+'إطار ملكي متعدد الطبقات':'Multi-layer royal frame','تأثير دخول مميز':'Signature entrance effect','اسم بتأثير ضوئي':'Name with a light effect',
+'شارة VIP أسطورية':'Legendary VIP badge','مؤثرات تفاعل متقدمة':'Advanced interaction effects','خلفية ملف حصرية':'Exclusive profile background',
+'إطار نادر متحرك':'Rare animated frame','دخول غرفة بتأثير خاص':'Special room-entry effect','هوية بصرية مخصصة':'Custom visual identity',
+'شارة النخبة العليا':'Supreme elite badge','مؤثر حضور متقدم':'Advanced presence effect','ثيم بصري حصري':'Exclusive visual theme',
+'إطار VIP فائق':'Ultra VIP frame','تأثير دخول ملحمي':'Epic entrance effect','بطاقة هوية فائقة':'Ultra identity card',
+'إطار توقيع ORION':'ORION signature frame','مؤثر ظهور حصري':'Exclusive reveal effect','مجموعة مؤثرات نادرة':'Rare effects collection',
+'إطار التاج الأعلى':'Supreme crown frame','دخول أسطوري مميز':'Legendary signature entrance','هوية VIP كاملة وحصرية':'Complete exclusive VIP identity',
+'ملاحظة: VIP1 يتضمن إطار/مقدمة الرأس وفق الميزة المؤكدة. بقية المزايا المعروضة هي مقترح تصميمي متدرج للاعتماد قبل تحويلها إلى امتيازات فعلية داخل التطبيق.':'Note: VIP1 includes the confirmed profile frame/intro feature. The remaining benefits are proposed design concepts and must be approved before being treated as actual in-app privileges.',
+'كل رتبة Noble لها حارسها الأسطوري وشعارها ولونها الخاص.':'Each Noble rank has its own mythical guardian, emblem and signature color.',
+'الانبعاث · الإشراق · اللهب الأول':'Rebirth · Radiance · The First Flame','الحراسة · الشجاعة · الشرف':'Guardianship · Courage · Honor',
+'الحكمة · الاتزان · السكينة':'Wisdom · Balance · Serenity','القوة · السيادة · الارتقاء':'Power · Sovereignty · Ascension',
+'الخلود · الإرث · التاج الكوني':'Immortality · Legacy · The Cosmic Crown',
+'يتم احتساب نقاط Noble بشكل مستقل عن مستويات Live VIP. الدورة حسب الأشهر الميلادية، والرتبة تستمر شهرين وفق شروط المحافظة المعتمدة.':'Noble points are calculated separately from Live VIP levels. Rankings follow calendar months, and each rank lasts two months subject to the approved retention rules.',
+'العودة إلى ORION Live ↗':'Back to ORION Live ↗'
+};
+const liveVipTextNodes=[];
+const textWalker=document.createTreeWalker(document.body,4);
+while(textWalker.nextNode()){const node=textWalker.currentNode;liveVipTextNodes.push([node,node.nodeValue]);}
+function setLanguage(next){
+ localStorage.setItem('orion-language',next);
+ document.documentElement.lang=next;document.documentElement.dir=next==='ar'?'rtl':'ltr';
+ document.body.classList.toggle('arabic',next==='ar');document.body.classList.toggle('english',next==='en');
+ liveVipTextNodes.forEach(([node,original])=>{const trimmed=original.trim();const translated=liveVipTranslations[trimmed];node.nodeValue=next==='en'&&translated?original.replace(trimmed,translated):original;});
+ languageButton.textContent=next==='ar'?'English':'العربية';
+ languageButton.setAttribute('aria-label',next==='ar'?'التبديل إلى الإنجليزية':'Switch to Arabic');
+ document.title=next==='ar'?'ORION Live VIP — ORION':'ORION Live VIP — Membership & Noble Ranks';
+ const menuButton=document.querySelector('.menu-toggle');if(menuButton)menuButton.setAttribute('aria-label',next==='ar'?'فتح القائمة':'Open navigation');
+}
 setLanguage(localStorage.getItem('orion-language')==='en'?'en':'ar');
 languageButton.addEventListener('click',()=>setLanguage(document.documentElement.lang==='ar'?'en':'ar'));
 const menuButton=document.querySelector('.menu-toggle'),mainNav=document.querySelector('.main-nav');if(menuButton&&mainNav){menuButton.addEventListener('click',()=>{const opened=mainNav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(opened))});mainNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{mainNav.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}));}
