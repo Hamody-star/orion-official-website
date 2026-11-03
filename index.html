@@ -17,12 +17,12 @@ body{min-height:100svh;overflow-x:hidden}
 .header-actions{margin-inline-start:auto}
 .landing{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:78px 18px 30px;position:relative}
 .landing:before,.landing:after{display:none}
-.landing-inner{width:100%;min-height:calc(100svh - 108px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.landing-inner{width:100%;min-height:calc(100svh - 108px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
 .landing-emblem{display:block;width:min(88vw,78svh,760px);height:min(78svh,760px);max-height:calc(100svh - 190px);object-fit:contain;margin:0;opacity:1;animation:none;filter:none}
 .landing-wordmark,.landing-sub,.landing-hook,.landing-contact,.landing-foot{display:none}
-.landing-tag{font:700 clamp(22px,4vw,34px)/1.5 Cairo,sans-serif;color:#f0ecff;margin:0}
+.landing-brand{font:800 clamp(34px,6vw,54px)/1 Manrope,sans-serif;letter-spacing:.22em;margin:0 0 2px;background:linear-gradient(110deg,#f8fbff 8%,#9ba8c7 38%,#fff4d6 58%,#b8c8ee 82%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 8px 30px rgba(120,150,255,.16)}\n.landing-tag{font:600 clamp(20px,3.5vw,29px)/1.5 Cairo,sans-serif;color:#e7eaff;margin:0}\n.landing-description{max-width:620px;margin:0 auto;color:#aeb9d4;font:400 clamp(14px,2vw,17px)/1.9 Cairo,sans-serif}
 .landing-sub{display:none}
-.landing-cta{display:inline-flex;min-width:230px;min-height:54px;align-items:center;justify-content:center;font-family:Cairo,sans-serif;font-size:17px;padding:14px 30px;opacity:1;animation:none;box-shadow:0 8px 35px rgba(127,98,255,.25)}
+.landing-cta{display:inline-flex;min-width:0;min-height:0;align-items:center;justify-content:center;font-family:Cairo,sans-serif;font-size:17px;padding:8px 4px;color:#f4f1ff;text-decoration:none;border-bottom:1px solid rgba(178,164,255,.55);background:transparent;box-shadow:none;transition:color .2s ease,border-color .2s ease}\n.landing-cta:hover{color:#b9a8ff;border-color:#b9a8ff}
 .landing-cta span{margin-inline-start:8px}
 .en-only{display:none}
 body.english .ar-only{display:none}
