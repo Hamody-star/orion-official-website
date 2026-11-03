@@ -3,7 +3,7 @@ const slug=document.body.dataset.world;const w=worlds[slug];
 if(w){
  let lang="ar";const root=document.documentElement;const switcher=document.querySelector(".lang-switch");
  function render(l){
-  lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";document.body.classList.toggle("arabic",l==="ar");document.querySelectorAll("[data-en][data-ar]").forEach(n=>{n.textContent=n.dataset[l];});
+  lang=l;localStorage.setItem("orion-language",l);root.lang=l;root.dir=l==="ar"?"rtl":"ltr";document.body.classList.toggle("arabic",l==="ar");document.querySelectorAll("[data-en][data-ar]").forEach(n=>{n.textContent=n.dataset[l];});
   document.querySelector("#worldTag").textContent=l==="ar"?w.tagAr:w.tag;
   document.querySelector("#worldTitle").textContent=l==="ar"?w.ar:w.name;
   document.querySelector("#worldDesc").textContent=l==="ar"?w.descAr:w.desc;
@@ -22,10 +22,11 @@ if(w){
   document.querySelector("#navUniverse").textContent=l==="ar"?"كل العوالم":"All worlds";
   document.querySelector("#navAbout").textContent=l==="ar"?"عن ORION":"About ORION";
   document.querySelector("#navContact").textContent=l==="ar"?"تواصل معنا":"Contact";
-  document.querySelector("#footerTag").textContent=l==="ar"?"عالم رقمي مترابط":"A Connected Digital Universe";\n  document.querySelectorAll(".main-nav a").forEach((a)=>{a.setAttribute("lang",l)});\n  document.querySelector(".menu-toggle")?.setAttribute("aria-label",l==="ar"?"فتح القائمة":"Open navigation");\n  switcher.setAttribute("aria-label",l==="ar"?"التبديل إلى الإنجليزية":"Switch to Arabic");
+  document.querySelector("#footerTag").textContent=l==="ar"?"عالم رقمي مترابط":"A Connected Digital Universe";
+  document.querySelectorAll(".main-nav a").forEach((a)=>{a.setAttribute("lang",l)});\n  document.querySelector(".menu-toggle")?.setAttribute("aria-label",l==="ar"?"فتح القائمة":"Open navigation");\n  switcher.setAttribute("aria-label",l==="ar"?"التبديل إلى الإنجليزية":"Switch to Arabic");
   switcher.textContent=l==="ar"?"الإنجليزية":"العربية";
  }
- render("ar");switcher.addEventListener("click",()=>render(lang==="en"?"ar":"en"));
+ render(localStorage.getItem("orion-language")==="en"?"en":"ar");switcher.addEventListener("click",()=>render(lang==="en"?"ar":"en"));
  document.querySelector("#year").textContent=new Date().getFullYear();
 }
 const mobileMenu=document.querySelector(".menu-toggle"),mobileNav=document.querySelector(".main-nav");
