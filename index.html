@@ -14,7 +14,7 @@ html,body{margin:0;min-height:100%;background:#050711;color:#f3f6ff}
 body{min-height:100svh;overflow-x:hidden}
 .site-header{position:absolute;top:0;left:0;right:0;z-index:5;background:transparent;border:0;box-shadow:none}
 .main-nav{display:none}
-.header-actions{margin-inline-start:auto}
+.header-actions{margin-inline-start:auto;display:flex;align-items:center;gap:16px}.app-entry{font:600 12px Cairo,sans-serif;color:#e6d5ae;text-decoration:none;border:1px solid #b99a6355;border-radius:22px;padding:8px 13px;white-space:nowrap}.app-entry:hover{background:#b99a6318;border-color:#e6d5ae}
 .landing{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:78px 18px 30px;position:relative}
 .landing:before,.landing:after{display:none}
 .landing-inner{width:100%;min-height:calc(100svh - 108px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
@@ -40,7 +40,7 @@ body.english .landing-cta.en-only{display:inline-flex}
  .landing-brand{font-size:clamp(30px,9vw,42px);letter-spacing:.18em}
  .landing-description{max-width:340px;font-size:14px;line-height:1.8;padding-inline:8px}
  .landing-cta{min-width:210px;min-height:44px;font-size:15px}
- .landing-contact{margin-top:2px;font-size:12px}
+ .landing-contact{margin-top:2px;font-size:12px}.app-entry{font-size:10px;padding:7px 9px}
 }
 @media(max-width:360px){
  .landing{padding-inline:10px}
@@ -55,7 +55,7 @@ body.english .landing-cta.en-only{display:inline-flex}
 <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
 <header class="site-header">
  <a class="brand" href="index.html" aria-label="ORION home"><img src="128AE134-D20A-4889-9BC2-3BB171566B28.png" alt="ORION emblem"><span>ORION</span></a>
- <div class="header-actions"><button class="lang-switch" type="button" aria-label="Switch language">English</button></div>
+ <div class="header-actions"><a class="app-entry ar-only" href="app/index.html">دخول Web App</a><a class="app-entry en-only" href="app/index.html">Open Web App</a><button class="lang-switch" type="button" aria-label="Switch language">English</button></div>
 </header>
 <main>
 <section class="landing" id="home">
