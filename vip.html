@@ -1,2 +1,101 @@
 <!doctype html>
-<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050711"><meta name="description" content="ORION VIP & Membership — part of the ORION connected digital universe."><title>ORION VIP & Membership — ORION</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="world.css"></head><body data-world="vip"><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div><header class="site-header"><a class="brand" href="index.html" aria-label="ORION home"><img src="FE1CA2B2-797F-4EA6-8B1E-5C66DCC485C7.png" alt="ORION emblem"><span>ORION</span></a><nav class="main-nav" aria-label="Main navigation"><a id="navHome" href="index.html">الرئيسية</a><a id="navUniverse" href="universe.html">كل العوالم</a><a id="navAbout" href="about.html">عن ORION</a><a id="navContact" href="contact.html">تواصل معنا</a></nav><div class="header-actions"><button class="lang-switch" type="button">عربي</button></div><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><i></i><i></i></button></header><main><section class="world-page section-shell"><div class="world-hero"><div class="eyebrow"><span class="eyebrow-line"></span><span id="worldTag"></span><span class="eyebrow-line"></span></div><div id="worldIcon" class="world-icon-large"></div><h1 id="worldTitle"></h1><p id="worldDesc"></p><div class="world-meta"><span>ONE ORION ID</span><span>CONNECTED EXPERIENCE</span><span>ORION UNIVERSE</span></div><a id="homeLink" class="world-back" href="universe.html">Back to ORION</a></div><div class="section-kicker" id="worldKicker">DISCOVER THIS WORLD</div><div class="world-detail-grid" id="worldFeatures"></div><div class="world-cta"><h2 id="worldCtaTitle">Your ORION journey starts here</h2><p id="worldCtaText">Discover more destinations across ORION.</p><a class="button button-primary" href="universe.html">Explore all worlds <span>↗</span></a></div></section></main><footer class="site-footer"><div class="footer-top"><a class="brand footer-brand" href="index.html"><img src="FE1CA2B2-797F-4EA6-8B1E-5C66DCC485C7.png" alt=""><span>ORION</span></a><p id="footerTag">A Connected Digital Universe</p><a href="universe.html" class="back-top">All worlds ↑</a></div><div class="footer-bottom"><span>© <span id="year"></span> ORION. All rights reserved.</span><span>ONE IDENTITY. ONE UNIVERSE. ENDLESS POSSIBILITIES.</span><span><a href="contact.html">Contact</a></span></div></footer><script src="world.js"></script></body></html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050711"><meta name="description" content="ORION VIP & Membership — part of the ORION connected digital universe."><title>ORION VIP & Membership — ORION</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="world.css">
+<style>
+.vip-membership{margin:68px auto 78px;max-width:1120px;position:relative;z-index:1}
+.vip-membership-head{text-align:center;max-width:780px;margin:0 auto 28px}
+.vip-membership-head h2{font:800 clamp(27px,4.5vw,42px) Manrope;margin:0 0 12px;color:#f2f5ff}
+.vip-membership-head p{font:13px/2 Cairo;color:#aab8d0;margin:0}
+.vip-billing-switch{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:26px auto 12px}
+.vip-billing-switch button{border:1px solid #ffffff25;background:#111a2b;color:#c7d2e7;border-radius:30px;padding:10px 17px;font:700 12px Cairo;cursor:pointer;transition:.2s}
+.vip-billing-switch button[aria-pressed="true"]{border-color:#d6b56a;background:#d6b56a18;color:#f3d99e;box-shadow:0 0 22px #d6b56a18}
+.vip-billing-note{text-align:center;color:#8f9db5;font:11px/1.8 Cairo;margin:0 auto 26px}
+.vip-tier-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:stretch}
+.vip-tier-card{--tier:#d8c6a0;display:flex;flex-direction:column;padding:22px 18px;border:1px solid color-mix(in srgb,var(--tier) 48%,transparent);border-radius:16px;background:radial-gradient(ellipse at 50% 0,color-mix(in srgb,var(--tier) 13%,transparent),transparent 62%),linear-gradient(155deg,#141c2c,#090e19);box-shadow:0 18px 42px #0003;min-width:0}
+.vip-tier-card.silver{--tier:#cbd5e5}.vip-tier-card.gold{--tier:#e2bd78}.vip-tier-card.platinum{--tier:#b9a7ff}
+.vip-tier-card h3{font:800 21px Manrope;color:var(--tier);margin:0 0 6px}
+.vip-tier-card .tier-tag{font:700 9px Manrope;letter-spacing:.13em;color:var(--tier);text-transform:uppercase}
+.vip-tier-price{font:800 36px Manrope;color:#fff;margin:17px 0 2px;letter-spacing:-.04em}
+.vip-tier-duration{font:11px Cairo;color:#aab8d0}
+.vip-tier-saving{display:inline-flex;align-self:flex-start;margin:12px 0 3px;border:1px solid color-mix(in srgb,var(--tier) 35%,transparent);border-radius:20px;padding:5px 9px;color:var(--tier);font:700 10px Cairo;min-height:25px}
+.vip-tier-card ul{list-style:none;padding:15px 0 0;margin:14px 0 0;border-top:1px solid #ffffff16;display:grid;gap:11px}
+.vip-tier-card li{font:11px/1.8 Cairo;color:#d5dbea;display:flex;gap:8px;align-items:flex-start}
+.vip-tier-card li:before{content:"✦";color:var(--tier);flex:0 0 auto}
+.vip-tier-card .cashback{margin-top:auto;padding-top:18px}
+.vip-tier-card .cashback strong{display:block;font:800 28px Manrope;color:var(--tier)}
+.vip-tier-card .cashback span{font:10px/1.8 Cairo;color:#aab8d0}
+.vip-membership-rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+.vip-rule-card{border:1px solid #7896c433;border-radius:14px;background:#0d1524;padding:20px}
+.vip-rule-card h3{font:700 16px Manrope;color:#e7edf8;margin:0 0 10px}
+.vip-rule-card p{font:11px/2 Cairo;color:#aab8d0;margin:0}
+.vip-membership-footnote{text-align:center;color:#8795ad;font:10px/2 Cairo;max-width:900px;margin:22px auto 0}
+@media(max-width:900px){.vip-tier-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.vip-membership{margin:42px auto 55px}.vip-tier-grid,.vip-membership-rules{grid-template-columns:1fr}.vip-tier-card{padding:21px}.vip-billing-switch{gap:6px}.vip-billing-switch button{padding:9px 12px;font-size:11px}}
+</style>
+</head><body data-world="vip"><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div><header class="site-header"><a class="brand" href="index.html" aria-label="ORION home"><img src="FE1CA2B2-797F-4EA6-8B1E-5C66DCC485C7.png" alt="ORION emblem"><span>ORION</span></a><nav class="main-nav" aria-label="Main navigation"><a id="navHome" href="index.html">الرئيسية</a><a id="navUniverse" href="universe.html">كل العوالم</a><a id="navAbout" href="about.html">عن ORION</a><a id="navContact" href="contact.html">تواصل معنا</a></nav><div class="header-actions"><button class="lang-switch" type="button">عربي</button></div><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><i></i><i></i></button></header><main><section class="world-page section-shell"><div class="world-hero"><div class="eyebrow"><span class="eyebrow-line"></span><span id="worldTag"></span><span class="eyebrow-line"></span></div><div id="worldIcon" class="world-icon-large"></div><h1 id="worldTitle"></h1><p id="worldDesc"></p><div class="world-meta"><span>ONE ORION ID</span><span>CONNECTED EXPERIENCE</span><span>ORION UNIVERSE</span></div><a id="homeLink" class="world-back" href="universe.html">Back to ORION</a></div><div class="section-kicker" id="worldKicker">DISCOVER THIS WORLD</div><div class="world-detail-grid" id="worldFeatures"></div>
+<section class="vip-membership" id="vipMembership" aria-labelledby="vipMembershipTitle">
+  <div class="vip-membership-head">
+    <div class="section-kicker" data-en="GENERAL MEMBERSHIP" data-ar="العضوية العامة">العضوية العامة</div>
+    <h2 id="vipMembershipTitle" data-en="Choose your ORION VIP membership" data-ar="اختار عضوية ORION VIP المناسبة ليك">اختار عضوية ORION VIP المناسبة ليك</h2>
+    <p data-en="One general membership with four tiers. Choose a billing period and review the benefits and eligible cashback rate for your tier." data-ar="عضوية عامة واحدة بأربع باقات. اختار مدة الاشتراك وشوف مميزات كل باقة ونسبة الاسترداد المؤهلة الخاصة بيها.">عضوية عامة واحدة بأربع باقات. اختار مدة الاشتراك وشوف مميزات كل باقة ونسبة الاسترداد المؤهلة الخاصة بيها.</p>
+  </div>
+  <div class="vip-billing-switch" role="group" aria-label="Billing period">
+    <button type="button" data-period="monthly" aria-pressed="true" data-en="Monthly" data-ar="شهري">شهري</button>
+    <button type="button" data-period="quarterly" aria-pressed="false" data-en="3 Months" data-ar="3 شهور">3 شهور</button>
+    <button type="button" data-period="semiannual" aria-pressed="false" data-en="6 Months" data-ar="6 شهور">6 شهور</button>
+    <button type="button" data-period="annual" aria-pressed="false" data-en="Annual" data-ar="سنوي">سنوي</button>
+  </div>
+  <p class="vip-billing-note" id="vipBillingNote" data-en="The displayed amount is the total price for the selected period, billed in USD." data-ar="السعر المعروض هو إجمالي قيمة مدة الاشتراك المختارة، ويتم الدفع بالدولار الأمريكي.">السعر المعروض هو إجمالي قيمة مدة الاشتراك المختارة، ويتم الدفع بالدولار الأمريكي.</p>
+  <div class="vip-tier-grid">
+    <article class="vip-tier-card basic">
+      <span class="tier-tag">ORION MEMBERSHIP</span><h3>VIP Basic</h3>
+      <div class="vip-tier-price" data-price="basic">$2.00</div><div class="vip-tier-duration" data-duration data-en="per month" data-ar="لمدة شهر">لمدة شهر</div><span class="vip-tier-saving" data-saving="basic" data-en="Standard price" data-ar="السعر الأساسي">السعر الأساسي</span>
+      <ul>
+        <li data-en="Basic ORION VIP membership badge" data-ar="شارة عضوية ORION VIP Basic">شارة عضوية ORION VIP Basic</li>
+        <li data-en="Basic profile frame and member identity styling" data-ar="إطار أساسي للملف الشخصي ولمسة مميزة لهوية العضو">إطار أساسي للملف الشخصي ولمسة مميزة لهوية العضو</li>
+        <li data-en="Access to member offers when available" data-ar="إمكانية الاستفادة من عروض الأعضاء عند توفرها">إمكانية الاستفادة من عروض الأعضاء عند توفرها</li>
+      </ul>
+      <div class="cashback"><strong>10%</strong><span data-en="Eligible loss cashback in ORION Betting and ORION Live room games only" data-ar="استرداد الخسائر المؤهلة في ORION Betting وألعاب غرف ORION Live فقط">استرداد الخسائر المؤهلة في ORION Betting وألعاب غرف ORION Live فقط</span></div>
+    </article>
+    <article class="vip-tier-card silver">
+      <span class="tier-tag">ENHANCED MEMBERSHIP</span><h3>VIP Silver</h3>
+      <div class="vip-tier-price" data-price="silver">$5.00</div><div class="vip-tier-duration" data-duration data-en="per month" data-ar="لمدة شهر">لمدة شهر</div><span class="vip-tier-saving" data-saving="silver" data-en="Standard price" data-ar="السعر الأساسي">السعر الأساسي</span>
+      <ul>
+        <li data-en="All VIP Basic membership benefits" data-ar="كل مميزات عضوية VIP Basic">كل مميزات عضوية VIP Basic</li>
+        <li data-en="Distinctive Silver membership badge" data-ar="شارة عضوية Silver مميزة">شارة عضوية Silver مميزة</li>
+        <li data-en="Additional profile frame and appearance options" data-ar="اختيارات إضافية لإطار ومظهر الملف الشخصي">اختيارات إضافية لإطار ومظهر الملف الشخصي</li>
+        <li data-en="Silver member offers when available" data-ar="عروض مخصصة لأعضاء Silver عند توفرها">عروض مخصصة لأعضاء Silver عند توفرها</li>
+      </ul>
+      <div class="cashback"><strong>15%</strong><span data-en="Eligible loss cashback in ORION Betting and ORION Live room games only" data-ar="استرداد الخسائر المؤهلة في ORION Betting وألعاب غرف ORION Live فقط">استرداد الخسائر المؤهلة في ORION Betting وألعاب غرف ORION Live فقط</span></div>
+    </article>
+    <article class="vip-tier-card gold">
+      <span class="tier-tag">PREMIUM MEMBERSHIP</span><h3>VIP Gold</h3>
+      <div class="vip-tier-price" data-price="gold">$10.00</div><div class="vip-tier-duration" data-duration data-en="per month" data-ar="لمدة شهر">لمدة شهر</div><span class="vip-tier-saving" data-saving="gold" data-en="Standard price" data-ar="السعر الأساسي">السعر الأساسي</span>
+      <ul>
+        <li data-en="All VIP Silver membership benefits" data-ar="كل مميزات عضوية VIP Silver">كل مميزات عضوية VIP Silver</li>
+        <li data-en="Exclusive Gold membership badge and profile styling" data-ar="شارة Gold حصرية وتصميم مميز للملف الشخصي">شارة Gold حصرية وتصميم مميز للملف الشخصي</li>
+        <li data-en="Priority customer support where available" data-ar="أولوية في دعم العملاء حيثما تتوفر الخدمة">أولوية في دعم العملاء حيثما تتوفر الخدمة</li>
+        <li data-en="Access to selected Gold member campaigns and events" data-ar="إمكانية الوصول إلى حملات وفعاليات مختارة لأعضاء Gold">إمكانية الوصول إلى حملات وفعاليات مختارة لأعضاء Gold</li>
+      </ul>
+      <div class="cashback"><strong>25%</strong><span data-en="Eligible loss cashback in ORION Betting and ORION Live room games only" data-ar="استرداد الخسائر المؤهلة في ORION Betting وألعاب غرف ORION Live فقط">استرداد الخسائر المؤهلة في ORION Betting وألعاب غرف ORION Live فقط</span></div>
+    </article>
+    <article class="vip-tier-card platinum">
+      <span class="tier-tag">ELITE MEMBERSHIP</span><h3>VIP Platinum</h3>
+      <div class="vip-tier-price" data-price="platinum">$20.00</div><div class="vip-tier-duration" data-duration data-en="per month" data-ar="لمدة شهر">لمدة شهر</div><span class="vip-tier-saving" data-saving="platinum" data-en="Standard price" data-ar="السعر الأساسي">السعر الأساسي</span>
+      <ul>
+        <li data-en="All VIP Gold membership benefits" data-ar="كل مميزات عضوية VIP Gold">كل مميزات عضوية VIP Gold</li>
+        <li data-en="Exclusive Platinum badge and premium profile styling" data-ar="شارة Platinum حصرية ومظهر فاخر للملف الشخصي">شارة Platinum حصرية ومظهر فاخر للملف الشخصي</li>
+        <li data-en="Highest support priority where available" data-ar="أعلى أولوية لدعم العملاء حيثما تتوفر الخدمة">أعلى أولوية لدعم العملاء حيثما تتوفر الخدمة</li>
+        <li data-en="Access to selected Platinum member experiences and events" data-ar="إمكانية الوصول إلى تجارب وفعاليات مختارة لأعضاء Platinum">إمكانية الوصول إلى تجارب وفعاليات مختارة لأعضاء Platinum</li>
+      </ul>
+      <div class="cashback"><strong>35%</strong><span data-en="Eligible loss cashback in ORION Betting and ORION Live room games only" data-ar="استرداد الخسائر المؤهلة في ORION Betting وألعاب غرف ORION Live فقط">استرداد الخسائر المؤهلة في ORION Betting وألعاب غرف ORION Live فقط</span></div>
+    </article>
+  </div>
+  <div class="vip-membership-rules">
+    <article class="vip-rule-card"><h3 data-en="Where cashback applies" data-ar="نطاق استرداد الخسائر">نطاق استرداد الخسائر</h3><p data-en="Membership cashback applies only to eligible losses in ORION Betting and the dedicated games inside ORION Live audio rooms. It does not apply to gifts, purchases or other ORION services." data-ar="استرداد العضوية يطبق فقط على الخسائر المؤهلة في ORION Betting والألعاب المخصصة داخل غرف ORION Live الصوتية. ولا يشمل الهدايا أو المشتريات أو خدمات ORION الأخرى.">استرداد العضوية يطبق فقط على الخسائر المؤهلة في ORION Betting والألعاب المخصصة داخل غرف ORION Live الصوتية. ولا يشمل الهدايا أو المشتريات أو خدمات ORION الأخرى.</p></article>
+    <article class="vip-rule-card"><h3 data-en="How Live game cashback is calculated" data-ar="طريقة حساب استرداد ألعاب اللايف">طريقة حساب استرداد ألعاب اللايف</h3><p data-en="For ORION Live games, eligible loss is calculated from the amount actually lost from the user's balance. The value of gifts sent to hosts and any unused balance are excluded. A user must submit a cashback request; it is not automatic." data-ar="في ألعاب ORION Live، تُحسب الخسارة المؤهلة من المبلغ الذي خسره المستخدم فعليًا من رصيده. تُستبعد قيمة الهدايا المرسلة للمضيفين وأي رصيد غير مستخدم. ويجب على المستخدم تقديم طلب استرداد؛ فالاسترداد ليس تلقائيًا.">في ألعاب ORION Live، تُحسب الخسارة المؤهلة من المبلغ الذي خسره المستخدم فعليًا من رصيده. تُستبعد قيمة الهدايا المرسلة للمضيفين وأي رصيد غير مستخدم. ويجب على المستخدم تقديم طلب استرداد؛ فالاسترداد ليس تلقائيًا.</p></article>
+    <article class="vip-rule-card"><h3 data-en="Betting cashback" data-ar="استرداد خسائر المراهنات">استرداد خسائر المراهنات</h3><p data-en="Eligible ORION Betting cashback is credited to the user's wallet in USD after the applicable result and eligibility checks are settled, subject to the program rules." data-ar="تُضاف مستحقات استرداد خسائر ORION Betting المؤهلة إلى محفظة المستخدم بالدولار بعد تسوية النتيجة والتحقق من الاستحقاق، وفق قواعد البرنامج.">تُضاف مستحقات استرداد خسائر ORION Betting المؤهلة إلى محفظة المستخدم بالدولار بعد تسوية النتيجة والتحقق من الاستحقاق، وفق قواعد البرنامج.</p></article>
+    <article class="vip-rule-card"><h3 data-en="Membership and availability" data-ar="العضوية وتوفر المزايا">العضوية وتوفر المزايا</h3><p data-en="General ORION VIP is separate from ORION Live VIP levels. Profile enhancements, member offers and support benefits are provided as each feature becomes available. Cashback activation is subject to applicable licensing, legal review, age and location eligibility, and responsible-play safeguards." data-ar="عضوية ORION VIP العامة منفصلة عن مستويات ORION Live VIP. وتُتاح تحسينات الملف الشخصي وعروض الأعضاء ومزايا الدعم مع إطلاق كل ميزة. ويخضع تفعيل الاسترداد للتراخيص والمراجعة القانونية وشروط السن والموقع وضوابط اللعب المسؤول.">عضوية ORION VIP العامة منفصلة عن مستويات ORION Live VIP. وتُتاح تحسينات الملف الشخصي وعروض الأعضاء ومزايا الدعم مع إطلاق كل ميزة. ويخضع تفعيل الاسترداد للتراخيص والمراجعة القانونية وشروط السن والموقع وضوابط اللعب المسؤول.</p></article>
+  </div>
+  <p class="vip-membership-footnote" data-en="Quarterly and semi-annual prices include proposed term discounts. All subscription prices are shown in USD; local payment conversion and provider fees, if any, are shown before payment." data-ar="أسعار الثلاثة والستة أشهر تتضمن خصومات المدة المقترحة. جميع أسعار الاشتراك بالدولار الأمريكي؛ ويُعرض تحويل عملة الدفع المحلية ورسوم مزود الدفع، إن وجدت، قبل السداد.">أسعار الثلاثة والستة أشهر تتضمن خصومات المدة المقترحة. جميع أسعار الاشتراك بالدولار الأمريكي؛ ويُعرض تحويل عملة الدفع المحلية ورسوم مزود الدفع، إن وجدت، قبل السداد.</p>
+</section>
+<div class="world-cta"><h2 id="worldCtaTitle">Your ORION journey starts here</h2><p id="worldCtaText">Discover more destinations across ORION.</p><a class="button button-primary" href="universe.html">Explore all worlds <span>↗</span></a></div></section></main><footer class="site-footer"><div class="footer-top"><a class="brand footer-brand" href="index.html"><img src="FE1CA2B2-797F-4EA6-8B1E-5C66DCC485C7.png" alt=""><span>ORION</span></a><p id="footerTag">A Connected Digital Universe</p><a href="universe.html" class="back-top">All worlds ↑</a></div><div class="footer-bottom"><span>© <span id="year"></span> ORION. All rights reserved.</span><span>ONE IDENTITY. ONE UNIVERSE. ENDLESS POSSIBILITIES.</span><span><a href="contact.html">Contact</a></span></div></footer><script src="world.js"></script><script src="vip-membership.js"></script></body></html>
