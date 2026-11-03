@@ -45,11 +45,11 @@ body.english .landing-tag{font-family:Manrope,sans-serif}body.english{font-famil
   <p class="landing-contact ar-only">للاستفسارات؟ <a href="contact.html">تواصل معنا</a></p>
   <p class="landing-contact en-only">Have a question? <a href="contact.html">Contact us</a></p>
  </div>
- <div class="landing-foot">ONE IDENTITY · ONE UNIVERSE · ENDLESS POSSIBILITIES</div>
+ <div class="landing-foot ar-only">هوية واحدة · عالم واحد · إمكانيات بلا حدود</div><div class="landing-foot en-only">ONE IDENTITY · ONE UNIVERSE · ENDLESS POSSIBILITIES</div>
 </section>
 </main>
 <script>
 let lang="ar";const switcher=document.querySelector(".lang-switch");
-switcher.addEventListener("click",()=>{lang=lang==="ar"?"en":"ar";document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";document.body.classList.toggle("english",lang==="en");document.body.classList.toggle("arabic",lang==="ar");switcher.textContent=lang==="ar"?"English":"عربي";document.querySelector(".landing-emblem").alt=lang==="ar"?"شعار ORION":"ORION emblem"});
+switcher.addEventListener("click",()=>{lang=lang==="ar"?"en":"ar";document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";document.body.classList.toggle("english",lang==="en");document.body.classList.toggle("arabic",lang==="ar");switcher.textContent=lang==="ar"?"الإنجليزية":"العربية";document.querySelector(".landing-emblem").alt=lang==="ar"?"شعار ORION":"ORION emblem"});
 </script>
 </body></html>
