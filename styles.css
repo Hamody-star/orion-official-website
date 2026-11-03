@@ -38,3 +38,15 @@ body.arabic .world-card h3,body.arabic .world-detail h2{font-family:"Cairo",sans
 @keyframes orion-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes orion-glow{from{filter:drop-shadow(0 0 25px #1a8dff30)}to{filter:drop-shadow(0 0 55px #7a61ff50)}}
 @media(max-width:700px){.world-card{min-height:185px}.world-page{padding-top:45px}.world-cta{padding:48px 18px}.hero-bottom span:nth-child(2){display:none}}
+
+
+/* Respect accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
