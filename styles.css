@@ -71,7 +71,7 @@ button, a { touch-action: manipulation; }
   .main-nav { top: 66px; left: 0; right: 0; padding: 16px 20px 20px; gap: 0; max-height: calc(100svh - 66px); overflow-y: auto; }
   .main-nav a { display: block; padding: 13px 4px; font-size: 14px; line-height: 1.5; border-bottom: 1px solid var(--line); }
   .button { min-height: 44px; justify-content: center; padding: 12px 16px; font-size: 13px; }
-  .hero { min-height: min(760px, calc(100svh - 66px)); min-height: max(620px, calc(100svh - 66px)); }
+  .hero { min-height: max(620px, calc(100svh - 66px)); }
   .hero-copy { width: 100%; padding: 38px 0 76px; }
   .hero-emblem { width: min(62vw, 230px); height: min(62vw, 230px); margin-top: 8px; }
   .wordmark { font-size: clamp(42px, 13vw, 62px); letter-spacing: .15em; padding-inline-start: .15em; }
